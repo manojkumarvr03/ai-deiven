@@ -1,4 +1,4 @@
-# aidriver
+# ai-deiven
 
 AI-powered driving learning and education platform.
 
