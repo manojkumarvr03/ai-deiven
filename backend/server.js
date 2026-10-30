@@ -19,8 +19,20 @@ const app = express();
 connectDB();
 
 // Middleware
+const allowedOrigins = [
+  'https://fluffy-eclair-978e8b.netlify.app',
+  'http://localhost:3000',
+  'http://localhost:5173'
+];
+
 app.use(cors({
-  origin: '*',
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.netlify.app')) {
+      callback(null, true);
+    } else {
+      callback(null, true);
+    }
+  },
   credentials: true
 }));
 app.use(express.json());
